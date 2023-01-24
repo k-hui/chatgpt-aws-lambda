@@ -1,44 +1,39 @@
-# OpenAI API Quickstart - Python example app
+# ChatGPT with AWS Lambda
 
-This is an example pet name generator app used in the OpenAI API [quickstart tutorial](https://beta.openai.com/docs/quickstart). It uses the [Flask](https://flask.palletsprojects.com/en/2.0.x/) web framework. Check out the tutorial or follow the instructions below to get set up.
+## Getting Started
 
-## Setup
+### Create a new virtual environment
 
-1. If you don’t have Python installed, [install it from here](https://www.python.org/downloads/)
+```bash
+python -m venv venv
+venv/bin/activate
+```
 
-2. Clone this repository
+### Install the requirements
 
-3. Navigate into the project directory
+```bash
+pip install -r requirements.txt
+```
 
-   ```bash
-   $ cd openai-quickstart-python
-   ```
+### Make a copy of the example environment variables file
 
-4. Create a new virtual environment
+```bash
+cp .env.example .env
+```
 
-   ```bash
-   $ python -m venv venv
-   $ . venv/bin/activate
-   ```
+### Add your [API key](https://beta.openai.com/account/api-keys) to the newly created `.env` file
 
-5. Install the requirements
+### Run the app
 
-   ```bash
-   $ pip install -r requirements.txt
-   ```
+```bash
+uvicorn main:app --reload
+```
 
-6. Make a copy of the example environment variables file
+# FastAPI Installation
 
-   ```bash
-   $ cp .env.example .env
-   ```
-
-7. Add your [API key](https://beta.openai.com/account/api-keys) to the newly created `.env` file
-
-8. Run the app
-
-   ```bash
-   $ flask run
-   ```
-
-You should now be able to access the app at [http://localhost:5000](http://localhost:5000)! For the full context behind this example app, check out the [tutorial](https://beta.openai.com/docs/quickstart).
+```bash
+pip install fastapi
+pip install "uvicorn[standard]"
+pip install mangum
+uvicorn main:app --reload
+```
