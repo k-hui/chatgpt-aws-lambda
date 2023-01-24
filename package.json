@@ -1,0 +1,26 @@
+{
+  "name": "chatgpt-aws-lambda",
+  "version": "1.0.0",
+  "description": "ChatGPT by Serverless Framework",
+  "scripts": {
+    "start": "sls offline",
+    "test": "sls invoke local -f main",
+    "test:dev": "sls invoke -f main",
+    "deploy": "sls deploy -s dev",
+    "remove": "sls remove"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k-hui/chatgpt-aws-lambda.git"
+  },
+  "author": "Key Hui",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/k-hui/chatgpt-aws-lambda/issues"
+  },
+  "homepage": "https://github.com/k-hui/chatgpt-aws-lambda#readme",
+  "devDependencies": {
+    "serverless": "^3.26.0",
+    "serverless-offline": "^12.0.4"
+  }
+}
