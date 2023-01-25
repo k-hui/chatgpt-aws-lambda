@@ -9,10 +9,41 @@ provider:
   region: us-east-1
   profile: ${env:PROFILE} # Read env variable
   memorySize: 128
+  timeout: 15
+  environment:
+    OPENAI_API_KEY: ${env:OPENAI_API_KEY}
+
+package:
+  individually: true
 
 functions:
-  main:
-    handler: main
+  app:
+    package:
+      patterns:
+        - '!requirements.txt'
+        - '!package.json'
+        - '!package-lock.json'
+        - '!venv/**'
+        - '!node_modules/**'
+        - '!LICENSE'
+        - '!README.md'
+        - '!.idea/**'
+    handler: main.handler
+    layers:
+      - Ref:
+          - PythonRequirementsLambdaLayer
+    events:
+      - httpApi:
+          method: get
+          path: /
+      - httpApi:
+          method: any
+          path: /{proxy+}
 
 plugins:
   - serverless-offline
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    layer: true

@@ -35,5 +35,15 @@ uvicorn main:app --reload
 pip install fastapi
 pip install "uvicorn[standard]"
 pip install mangum
+
+sls plugin install -n serverless-python-requirements
+```
+
+### Run the api server
+
+```bash
+# without serverless  offline
 uvicorn main:app --reload
+# with serverless offline
+sls offline --noPrependStageInUrl
 ```

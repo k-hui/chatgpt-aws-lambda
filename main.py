@@ -1,6 +1,7 @@
 import os
 import openai
 from fastapi import FastAPI
+from mangum import Mangum
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -19,3 +20,7 @@ async def root():
     )
     result = response.choices[0].text
     return {'result': result}
+
+
+# Wrapper for lambda
+handler = Mangum(app)
