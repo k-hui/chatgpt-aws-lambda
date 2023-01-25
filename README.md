@@ -6,7 +6,7 @@
 
 ```bash
 python -m venv venv
-venv/bin/activate
+soruce venv/bin/activate
 ```
 
 ### Install the requirements
